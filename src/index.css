@@ -48,8 +48,46 @@ code {
   color: #ffffff;
 }
 
-img {
-  width:1500px;
- 
 
+.mainImg img {
+  width:50%;
+  height: auto;
+  
+}
+
+.carousel img {
+  width:270px;
+  padding-top:20px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.m-right-arrow{
+  position: absolute;
+  top: 40%;
+  right: 2%;
+  font-size: 3rem;
+  color:#000;
+}
+.m-left-arrow{
+  position: absolute;
+  top: 40%;
+  left: 2%;
+  font-size: 3rem;
+  color:#000;
+}
+
+.c-right-arrow{
+  position: absolute;
+  top: 80%;
+  right: 10%;
+  font-size: 3rem;
+  color:#000;
+}
+.c-left-arrow{
+  position: absolute;
+  top: 80%;
+  left: 10%;
+  font-size: 3rem;
+  color:#000;
 }
