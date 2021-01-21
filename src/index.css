@@ -48,11 +48,16 @@ code {
   color: #ffffff;
 }
 
-
-.mainImg img {
+.mainImgCont img {
   width:50%;
   height: auto;
-  
+}
+
+.mainImg
+{
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
 }
 
 .carousel img {
@@ -91,3 +96,4 @@ code {
   font-size: 3rem;
   color:#000;
 }
+

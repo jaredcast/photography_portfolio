@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
+import { useSpring, animated } from 'react-spring';
 // import AliceCarousel from 'react-alice-carousel';
 // import 'react-alice-carousel/lib/alice-carousel.css';
-//import temp from './photos/1.jpg';
+
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -11,14 +12,20 @@ const items = [
     {id:2,image: "/2.jpg"},
     { id:3, image: "/3.jpg"}
   ];
+
 const Photo = () => {
     const [mainImg, setMainImg] = useState(`/1.jpg`) //Set first initial
     const [c, setC] = useState(1);
+    const props = useSpring({
+        opacity: 1, from: {opacity: 0, transform: "translate(-1000px, 0px)"}, 
+        transform: "translate(0px, 0px)",
+        reset: true, initial: 0}
+        )
 
     return(
         <div className = "photos">
-            <div className = "mainImg">
-                <img src={mainImg}/>
+            <div className = "mainImgCont">
+                <animated.img src={mainImg} style={props}/>
                 <FaArrowAltCircleLeft className='m-left-arrow' onClick={() => {
                     console.log("Old c " + c);
                     if (c - 1 === 0) {
