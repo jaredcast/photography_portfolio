@@ -6,7 +6,7 @@ import { useSpring, animated } from 'react-spring';
 
 
 const handleDragStart = (e) => e.preventDefault();
-
+//temp
 const items = [
     { id:1,image: "/1.jpg"},
     {id:2,image: "/2.jpg"},
