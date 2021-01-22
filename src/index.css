@@ -58,7 +58,7 @@ img
 
 .mainImgCont img
 {
-  width:50%;
+  width: 50%;
   height: auto;
   -khtml-user-select: none;
   -o-user-select: none;
@@ -95,7 +95,7 @@ img
 
 .c-right-arrow{
   position: fixed;
-  top: 80%;
+  top: 60%;
   right: 10%;
   font-size: 3rem;
   color:#000;
@@ -104,7 +104,7 @@ img
 }
 .c-left-arrow{
   position: fixed;
-  top: 80%;
+  top: 60%;
   left: 10%;
   font-size: 3rem;
   color:#000;
@@ -118,5 +118,13 @@ img
   position:absolute;
   display:flex;
   flex: 1;
-  min-width:300px;
+  max-width: inherit;
+}
+
+.carouselItems img {
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }

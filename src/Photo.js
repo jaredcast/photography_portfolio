@@ -9,14 +9,14 @@ const handleDragStart = (e) => e.preventDefault();
 //temp
 const items = [
     { id:1,image: "/1.jpg"},
-    {id:2,image: "/2.jpg"},
+    { id:2,image: "/2.jpg"},
     { id:3, image: "/3.jpg"},
     { id:4, image: "/4.jpg"},
-    { id:5, image: "/5.jpg"},{ id:1,image: "/1.jpg"},
-    {id:2,image: "/2.jpg"},
-    { id:3, image: "/3.jpg"},
-    { id:4, image: "/4.jpg"},
-    { id:5, image: "/5.jpg"},   
+    { id:5, image: "/5.jpg"},
+    { id:6, image: "/6.jpg"},
+    { id:7, image: "/7.jpg"},
+    { id:8, image: "/8.jpg"},
+    { id:9, image: "/9.jpg"},   
     //{ id:3, image: "/3.jpg"},
     
   ];
@@ -24,24 +24,31 @@ const items = [
 const Photo = () => {
     const [mainImg, setMainImg] = useState(`/1.jpg`) //Set first initial
     const [c, setC] = useState(1);
+    const [direction, setDir] = useState("1000px");
+    const [wid, setWid] = useState(0);
+    const [resetBool, setReset] = useState(true);
+
     const props = useSpring({
-        opacity: 1, from: {opacity: 0, transform: "translate(-1000px, 0px)"}, 
+        opacity: 1, from: {opacity: 0, transform: `translate(${direction}, 0px)`}, 
         transform: "translate(0px, 0px)",
-        reset: true, initial: 0}
-        )
+        reset: resetBool, initial: 0})
 
     return(
         <div className = "photos">
             <div className = "mainImgCont">
-                <animated.img src={mainImg} style={props}/>
+                <animated.img src={mainImg} style={props}/> {/* This is the main image.*/}
                 <FaArrowAltCircleLeft className='m-left-arrow' onClick={() => {
                     console.log("Old c " + c);
                     if (c - 1 === 0) {
+                        setReset(true);
+                        setDir("1000px");
                         setC(items.length);
                         setMainImg(`/${items.length}.jpg`);
-                        console.log("New c " + c);
+                        console.log("New c " + c);                      
                     }
                     else {
+                        setReset(true);
+                        setDir("1000px");
                         setC(c - 1);
                         setMainImg(`/${c-1}.jpg`);
                         console.log("New c " + c);
@@ -50,21 +57,26 @@ const Photo = () => {
                 <FaArrowAltCircleRight className='m-right-arrow' onClick={() => {
                     console.log("Old c " + c);
                     if (c+1 > items.length) {
+                        setReset(true);
+                        setDir("-1000px");
                         setC(1);
                         setMainImg(`/${1}.jpg`);
                         console.log("New c " + c);
                     }
                     else {
+                        setReset(true);
+                        setDir("-1000px");
                         setC(c + 1);
                         setMainImg(`/${c+1}.jpg`);
                         console.log("New c " + c);
                     }                   
                 }} />
-                
             </div>
             
             <div className = "carousel">
-                <div className="carouselItems">
+                <div className="carouselItems"  style={{
+                    'transform' : `translateX(-${wid}%)`
+                }}>
                     {items.map((item, index) => (
                         <img src={item.image} onClick={() => {
                             setMainImg(item.image);
@@ -75,11 +87,27 @@ const Photo = () => {
                     ))}
                 </div>
             </div>
-            <FaArrowAltCircleLeft className='c-left-arrow'/>
-                <FaArrowAltCircleRight className='c-right-arrow'/>
+            <FaArrowAltCircleLeft className='c-left-arrow' onClick = {() => {
+                if (wid-20 >= 0) {
+                    setWid(wid-20);
+                    console.log(wid-20);
+                    setReset(false);
+                }
+                else {
+                    console.log("Can't go left.")
+                };
+            }}/>
+            <FaArrowAltCircleRight className='c-right-arrow' onClick = {() => {
+                if (wid+20 <= items.length * 20) {
+                    setWid(wid+20);
+                    console.log(wid+20);
+                    setReset(false);
+                }
+                else {
+                    //fix me later
+                };
+            }}/>
         </div>
-        
-        
     )
 }
 
