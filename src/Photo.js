@@ -64,17 +64,19 @@ const Photo = () => {
             </div>
             
             <div className = "carousel">
-                <FaArrowAltCircleLeft className='c-left-arrow'/>
-                <FaArrowAltCircleRight className='c-right-arrow'/>
-                {items.map((item, index) => (
-                    <img src={item.image} onClick={() => {
-                        setMainImg(item.image);
-                        setC(item.id);
-                        console.log("Value of c " + c + 1);
-                    }}
-                    key = {index}/>
-                ))}
+                <div className="carouselItems">
+                    {items.map((item, index) => (
+                        <img src={item.image} onClick={() => {
+                            setMainImg(item.image);
+                            setC(item.id);
+                            console.log("Value of c " + c + 1);
+                        }}
+                        key = {index}/>
+                    ))}
+                </div>
             </div>
+            <FaArrowAltCircleLeft className='c-left-arrow'/>
+                <FaArrowAltCircleRight className='c-right-arrow'/>
         </div>
         
         

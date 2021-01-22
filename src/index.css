@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; 
+  /* Prevents scrolling side */
 }
 
 code {
@@ -110,3 +112,11 @@ img
 
 }
 
+/* One row of items for the carousel at the bottom */
+
+.carouselItems{
+  position:absolute;
+  display:flex;
+  flex: 1;
+  min-width:300px;
+}
