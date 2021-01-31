@@ -1,4 +1,4 @@
-const items = [
+export const items = [
         { id:1,image: "/1.jpg"},
         { id:2,image: "/2.jpg"},
         { id:3, image: "/3.jpg"},
@@ -11,7 +11,7 @@ const items = [
         //{ id:3, image: "/3.jpg"},
       ];
 
-const amstItems = [
+export const amstItems = [
 { id:1,image: "/1a.jpg"},
 { id:2,image: "/2a.jpg"},
 { id:3, image: "/3a.jpg"},

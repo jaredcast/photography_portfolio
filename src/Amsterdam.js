@@ -1,23 +1,13 @@
 import { useState, useEffect } from 'react';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import { useSpring, animated } from 'react-spring';
-import amstItems from './photoList';
+import { amstItems } from './photoList';
 // import AliceCarousel from 'react-alice-carousel';
 // import 'react-alice-carousel/lib/alice-carousel.css';
 
 
 const handleDragStart = (e) => e.preventDefault();
 //temp
-const items = [
-    { id:1,image: "/1a.jpg"},
-    { id:2,image: "/2a.jpg"},
-    { id:3, image: "/3a.jpg"},
-    { id:4, image: "/4a.jpg"},
-    { id:5, image: "/5a.jpg"},
-    { id:6, image: "/6a.jpg"},
-    { id:7, image: "/7a.jpg"}, 
-    //{ id:3, image: "/3.jpg"}
-  ];
 
 const Amsterdam = () => {
     const [mainImg, setMainImg] = useState(`/1a.jpg`) //Set first initial
@@ -40,8 +30,8 @@ const Amsterdam = () => {
                     if (c - 1 === 0) {
                         setReset(true);
                         setDir("1000px");
-                        setC(items.length);
-                        setMainImg(`/${items.length}a.jpg`);
+                        setC(amstItems.length);
+                        setMainImg(`/${amstItems.length}a.jpg`);
                         console.log("New c " + c);                      
                     }
                     else {
@@ -54,7 +44,7 @@ const Amsterdam = () => {
                 }}/>
                 <FaArrowAltCircleRight className='m-right-arrow' onClick={() => {
                     console.log("Old c " + c);
-                    if (c+1 > items.length) {
+                    if (c+1 > amstItems.length) {
                         setReset(true);
                         setDir("-1000px");
                         setC(1);
@@ -75,7 +65,7 @@ const Amsterdam = () => {
                 <div className="carouselItems"  style={{
                     'transform' : `translateX(-${wid}%)`
                 }}>
-                    {items.map((item, index) => (
+                    {amstItems.map((item, index) => (
                         <img src={item.image} onClick={() => {
                             setMainImg(item.image);
                             setC(item.id);
@@ -96,7 +86,7 @@ const Amsterdam = () => {
                 };
             }}/>
             <FaArrowAltCircleRight className='c-right-arrow' onClick = {() => {
-                if (wid+20 <= items.length * 20) {
+                if (wid+20 <= amstItems.length * 20) {
                     setWid(wid+20);
                     console.log(wid+20);
                     setReset(false);
