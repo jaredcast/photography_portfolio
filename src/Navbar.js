@@ -7,9 +7,9 @@ const Navbar = () => {
             <h1>Jared's Photo Portfolio</h1>
             <div className="links">
                 {/* Router links match against a route. */}
-                <NavLink className = 'navBarLink' to="/"> Home</NavLink>
-                <NavLink className = 'navBarLink' to="/cringe">Cringe</NavLink> 
-
+                <Link to="/"> Home</Link>
+                <Link to="/cringe">Cringe</Link> 
+                <Link to="/amsterdam">Amsterdam</Link>
                 {/* Outer braces = dynamic value.
                 Inner braces = javascript object. */}
             </div>

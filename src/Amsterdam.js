@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import { useSpring, animated } from 'react-spring';
+import amstItems from './photoList';
 // import AliceCarousel from 'react-alice-carousel';
 // import 'react-alice-carousel/lib/alice-carousel.css';
 
@@ -8,21 +9,18 @@ import { useSpring, animated } from 'react-spring';
 const handleDragStart = (e) => e.preventDefault();
 //temp
 const items = [
-    { id:1,image: "/1.jpg"},
-    { id:2,image: "/2.jpg"},
-    { id:3, image: "/3.jpg"},
-    { id:4, image: "/4.jpg"},
-    { id:5, image: "/5.jpg"},
-    { id:6, image: "/6.jpg"},
-    { id:7, image: "/7.jpg"},
-    { id:8, image: "/8.jpg"},
-    { id:9, image: "/9.jpg"},   
-    //{ id:3, image: "/3.jpg"},
-    
+    { id:1,image: "/1a.jpg"},
+    { id:2,image: "/2a.jpg"},
+    { id:3, image: "/3a.jpg"},
+    { id:4, image: "/4a.jpg"},
+    { id:5, image: "/5a.jpg"},
+    { id:6, image: "/6a.jpg"},
+    { id:7, image: "/7a.jpg"}, 
+    //{ id:3, image: "/3.jpg"}
   ];
 
-const Photo = () => {
-    const [mainImg, setMainImg] = useState(`/1.jpg`) //Set first initial
+const Amsterdam = () => {
+    const [mainImg, setMainImg] = useState(`/1a.jpg`) //Set first initial
     const [c, setC] = useState(1);
     const [direction, setDir] = useState("1000px");
     const [wid, setWid] = useState(0);
@@ -43,14 +41,14 @@ const Photo = () => {
                         setReset(true);
                         setDir("1000px");
                         setC(items.length);
-                        setMainImg(`/${items.length}.jpg`);
+                        setMainImg(`/${items.length}a.jpg`);
                         console.log("New c " + c);                      
                     }
                     else {
                         setReset(true);
                         setDir("1000px");
                         setC(c - 1);
-                        setMainImg(`/${c-1}.jpg`);
+                        setMainImg(`/${c-1}a.jpg`);
                         console.log("New c " + c);
                     } 
                 }}/>
@@ -60,18 +58,19 @@ const Photo = () => {
                         setReset(true);
                         setDir("-1000px");
                         setC(1);
-                        setMainImg(`/${1}.jpg`);
+                        setMainImg(`/${1}a.jpg`);
                         console.log("New c " + c);
                     }
                     else {
                         setReset(true);
                         setDir("-1000px");
                         setC(c + 1);
-                        setMainImg(`/${c+1}.jpg`);
+                        setMainImg(`/${c+1}a.jpg`);
                         console.log("New c " + c);
                     }                   
                 }} />
-            </div>            
+            </div>
+            
             <div className = "carousel">
                 <div className="carouselItems"  style={{
                     'transform' : `translateX(-${wid}%)`
@@ -110,4 +109,4 @@ const Photo = () => {
     )
 }
 
-export default Photo;
+export default Amsterdam;
