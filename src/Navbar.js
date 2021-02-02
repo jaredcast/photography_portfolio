@@ -8,7 +8,7 @@ const Navbar = () => {
             <div className="links">
                 {/* Router links match against a route. */}
                 <Link to="/"> Home</Link>
-                <Link to="/cringe">Cringe</Link> 
+                <Link to="/london">London</Link> 
                 <Link to="/amsterdam">Amsterdam</Link>
                 {/* Outer braces = dynamic value.
                 Inner braces = javascript object. */}
