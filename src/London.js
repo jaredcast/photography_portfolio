@@ -57,7 +57,7 @@ const London = () => {
             
             <div className = "carousel">
                 <div className="carouselItems"  style={{
-                    'transform' : `translateX(-${wid}%)`
+                    'transform' : `translate    (-${wid}%)`
                 }}>
                     {londonItems.map((item, index) => (
                         <img src={item.image} onClick={() => {

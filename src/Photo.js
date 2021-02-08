@@ -90,7 +90,9 @@ const Photo = () => {
                     //fix me later
                 };
             }}/>
+            
         </div>
+        
     )
 }
 
